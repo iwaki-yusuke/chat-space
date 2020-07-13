@@ -32,8 +32,10 @@ Things you may want to cover:
 - belongs_to :group
 - belongs_to :user
 
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|image|text|
 |body|text|
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
