@@ -1,0 +1,17 @@
+.chat-side
+  .side-header
+    .top-items
+      .name
+        masa
+      .icons
+        = link_to "#", class: "edit-group" do
+          = icon('fas','edit')
+        = link_to "#", class: "new-group" do
+          = icon('fas','cog')
+        
+  .groups
+    = link_to "#", class: "group" do
+      %p.group__group-name
+        techcamp
+      %p.group__latest-message
+        まだメッセージはありません
