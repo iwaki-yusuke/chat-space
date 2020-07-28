@@ -4,14 +4,15 @@
       .name
         = current_user.name
       .icons
-        = link_to "#", class: "edit-group" do
+        = link_to new_group_path, class: "new-group" do
           = icon('fas','edit')
-        = link_to edit_user_path(current_user), class: "new-group" do
+        = link_to edit_user_path(current_user), class: "edit-group" do
           = icon('fas','cog')
         
   .groups
-    = link_to "#", class: "group" do
-      %p.group__group-name
-        techcamp
-      %p.group__latest-message
-        まだメッセージはありません
+    - current_user.groups.each do |group|
+      = link_to "#", class: "group" do
+        %p.group__group-name
+          = group.name
+        %p.group__latest-message
+          まだメッセージはありません
