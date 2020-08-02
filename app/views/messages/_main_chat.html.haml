@@ -2,35 +2,24 @@
   .main-header
     .group-info
       .group-name
-        test
+        = @group.name
       .member-name
-        Member : masa
-    = link_to "#", class: "edit-buttern" do
+        Member:
+        - @group.users.each do |user|
+          = user.name
+    = link_to edit_group_path(@group) , class: "edit-buttern" do
       .edit
         Edit
               
-  .message-list
-    .message-information
-      .message-name
-        aaa
-      .date
-        2020/07/23(Thu) 09:30:30
-    .message
-      おはようございます
+  .message
+    = render @messages
 
-    .message-information
-      .message-name
-        aaa
-      .date
-        2020/07/23(Thu) 09:30:30
-    .message
-      おはようございます
 
-  .message-form
-    .input-box
-      %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-      %label{class: "input-box__image"}
-        = icon('fas', 'image')
-        %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"}
-
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'submit-btn'
