@@ -84,28 +84,24 @@
 
     form{
       display: flex;
-      .input-box{
-        width: 100%;
-        position: relative;
-        display: flex;
+      position: relative;
       
-        &__text{
+        .input-box__text{
           height: 50px;
           width: 100%;
           color :#434a54;
           border-style: none;
           padding: 0 40px 0 10px;
         }
-        &__image{
+        .input-box__image{
           cursor: pointer;
           position: absolute;
-          bottom: 40px;
-          right: 170px;
+          bottom: 20px;
+          right: 140px;
           
           .hidden{
             display: none;
           }
-        }
       }
       .submit-btn{
         width: 100px;
